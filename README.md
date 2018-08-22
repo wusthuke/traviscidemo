@@ -4,9 +4,6 @@
 
 ## go
 
-
-## ad
-
 ## commit -> merge -> commit -> accept
 
 | sha                                      | suite_id | status    | conclusion      | appId | appName    |
