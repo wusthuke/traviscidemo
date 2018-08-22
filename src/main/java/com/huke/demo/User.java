@@ -10,7 +10,7 @@ package com.huke.demo;
  */
 public class User {
 
-    private String name; a
+    private String name;
 
     public String getName() {
         return name;
