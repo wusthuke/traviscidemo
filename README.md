@@ -1,7 +1,6 @@
 [![Build Status](https://travis-ci.org/wusthuke/traviscidemo.svg?branch=master)](https://travis-ci.org/wusthuke/traviscidemo)
 
 
-
 ## commit -> push -> commit -> push -> merge -> commit -> accept
 
 | sha                                      | suite_id | status    | conclusion      | appId | appName    | head sha                                 |
@@ -32,4 +31,24 @@ pull_request: https://api.github.com/repos/wusthuke/traviscidemo/pulls/4
 | fc3f4b2b17a009560ac1e1d8e8232eb1a77e1c8d | 10660356 | queued    | null            | 67    | Travis CI  | fc3f4b2b17a009560ac1e1d8e8232eb1a77e1c8d |
 |                                          | 10660357 | completed | action_required | 11006 | App Center | 同上                                      |
 
-**结论：** push 时，创建 check_suite web hook, 但是只有pull_request发生变更(创建 or 新的push加入)时，check run 才会被真正创建.
+**结论：** push 时，创建 check_suite web hook,
+但是只有pull_request发生变更(创建 or 新的push加入)时，check run
+才会被真正创建.
+
+
+### service级别通知示例
+
+ namespace(kedou.hk)一级添加了service定义，service的范围为 public
+
+> 1. namespace级别管理员添加了service, 使用.
+> 2. kedou.hk -> test 发生变更，check_suite_webhook
+
+
+service若有资源在使用，则不能被删除。service要排除部分应用
+
+1. 获取service是否有在被使用。
+2. 获取使用某service的场景。
+3. 
+
+
+- a
