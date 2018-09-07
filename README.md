@@ -31,15 +31,13 @@ before: faca4cdda5259be19dcbe719a9d7b0a2daa48cbf
 
 ## commit -> push -> merge -> commit -> push -> accept
 
-## commit -> commit -> push -> commit -> push -> merge -> accept
-
-| sha | suite_id | status    | conclusion      | appId | appName    | head_sha |
-|:----|:---------|:----------|:----------------|:------|:-----------|:---------|
-|     |          |           |                 |       |            |          |
-|     |          | queued    | null            | 67    | Travis CI  |          |
-|     |          | queued    | null            | 11006 | App Center | 同上      |
-|     |          | queued    | null            | 67    | Travis CI  |          |
-|     |          | completed | action_required | 11006 | App Center | 同上      |
+| op            | sha | suite_id | status    | conclusion      | appId | appName    | head_sha |
+|:--------------|:----|:---------|:----------|:----------------|:------|:-----------|:---------|
+| commit + push |     | 无       |           |                 |       |            |          |
+|               |     |          | queued    | null            | 67    | Travis CI  |          |
+| merge         |     | 12896113 | queued    | null            | 11006 | App Center | 同上      |
+|               |     |          | queued    | null            | 67    | Travis CI  |          |
+|               |     |          | completed | action_required | 11006 | App Center | 同上      |
 
 
 ### service级别通知示例
