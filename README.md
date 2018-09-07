@@ -29,9 +29,22 @@ before: faca4cdda5259be19dcbe719a9d7b0a2daa48cbf
 才会被真正创建.
 
 
+## commit -> push -> merge -> commit -> push -> accept
+
+## commit -> commit -> push -> commit -> push -> merge -> accept
+
+| sha | suite_id | status    | conclusion      | appId | appName    | head_sha |
+|:----|:---------|:----------|:----------------|:------|:-----------|:---------|
+|     |          |           |                 |       |            |          |
+|     |          | queued    | null            | 67    | Travis CI  |          |
+|     |          | queued    | null            | 11006 | App Center | 同上      |
+|     |          | queued    | null            | 67    | Travis CI  |          |
+|     |          | completed | action_required | 11006 | App Center | 同上      |
+
+
 ### service级别通知示例
 
- namespace(kedou.hk)一级添加了service定义，service的范围为 public
+namespace(kedou.hk)一级添加了service定义，service的范围为 public
 
 > 1. namespace级别管理员添加了service, 使用.
 > 2. kedou.hk -> test 发生变更，check_suite_webhook
@@ -41,16 +54,3 @@ service若有资源在使用，则不能被删除。service要排除部分应用
 
 1. 获取service是否有在被使用。
 2. 获取使用某service的场景。
-3. 
-
-
-- a
-- b
-
-- c
-
-- d
-=======
-## 
-
-
