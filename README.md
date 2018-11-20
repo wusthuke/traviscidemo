@@ -29,18 +29,21 @@ before: faca4cdda5259be19dcbe719a9d7b0a2daa48cbf
 才会被真正创建.
 
 
-## commit -> push -> merge -> commit -> push -> accept
+## commit -> push -> merge -> commit -> push -> rerun -> accept
 
-| op            | sha                                      | suite_id | status    | conclusion      | appId | appName    | head_branch | head_sha                                 |
-|:--------------|:-----------------------------------------|:---------|:----------|:----------------|:------|:-----------|:------------|:-----------------------------------------|
-| commit + push | 47e8693b2e477e08b3572bb8983abcbc2c8912d5 | 12897458 | queued    | null            | 67    | Travis CI  | huke        | 47e8693b2e477e08b3572bb8983abcbc2c8912d5 |
-| -             | -                                        | 12897459 | queued    | null            | 11006 | App Center | -           | -                                        |
-|               |                                          |          |           |                 |       |            |             |                                          |
-| merge         | 47e8693b2e477e08b3572bb8983abcbc2c8912d5 | 12897458 | queued    | null            | 67    | Travis CI  |             |                                          |
-|               |                                          | 12897459 | completed | action_required | 11006 | App Center |             | 同上                                      |
-|               |                                          |          |           |                 |       |            |             |                                          |
-| commit + push |                                          | 12897458 | queued    | null            | 67    | Travis CI  |             |                                          |
-|               |                                          | 12897459 | completed | action_required | 11006 | App Center |             | 同上                                      |
+| op            | sha                                      | suite_id | status    | conclusion      | appId | appName    | check_run_size | run_id   | run_name                 |
+|:--------------|:-----------------------------------------|:---------|:----------|:----------------|:------|:-----------|:---------------|:---------|:-------------------------|
+| commit + push | 47e8693b2e477e08b3572bb8983abcbc2c8912d5 | 12897458 | queued    | null            | 67    | Travis CI  | 0              | 无       |                          |
+| -             | -                                        | 12897459 | queued    | null            | 11006 | App Center | 0              | 无       |                          |
+|               |                                          |          |           |                 |       |            |                |          |                          |
+| merge         | 47e8693b2e477e08b3572bb8983abcbc2c8912d5 | 12897458 | queued    | null            | 67    | Travis CI  | 0              | 无       |                          |
+|               |                                          | 12897459 | completed | action_required | 11006 | App Center | 1              | 无       | traviscidemo for Android |
+|               |                                          |          |           |                 |       |            |                |          |                          |
+| commit + push | a67ce313a7af0c25a7e1d9be1cdee362393cb903 | 12899226 | queued    | null            | 67    | Travis CI  | 0              | 无       |                          |
+|               |                                          | 12899227 | completed | action_required | 11006 | App Center | 1              | 16177509 | 同上                      |
+|               |                                          |          |           |                 |       |            |                |          |                          |
+| rerun         | a67ce313a7af0c25a7e1d9be1cdee362393cb903 | 12899226 | queued    | null            | 67    | Travis CI  | 0              | 无       |                          |
+|               |                                          | 12899227 | completed | action_required | 11006 | App Center | 1              | 16177509 | 同上                      |
 
 
 ### service级别通知示例
@@ -55,3 +58,5 @@ service若有资源在使用，则不能被删除。service要排除部分应用
 
 1. 获取service是否有在被使用。
 2. 获取使用某service的场景。
+
+a

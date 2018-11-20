@@ -3,20 +3,18 @@
  */
 package com.huke.demo;
 
+import lombok.Getter;
+
 /**
- *
  * @author huke
  * @version $Id: User.java, v 0.1 2018年08月22日 下午2:51 huke Exp $
  */
+@Getter
 public class User {
 
     private String name;
 
-    public String getName() {
-        return name;
-    }
+    private int age;
 
-    public void setName(String name) {
-        this.name = name;
-    }
+    private String address;
 }
