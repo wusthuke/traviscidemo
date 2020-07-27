@@ -6,7 +6,7 @@ package com.huke.demo;
 import lombok.Getter;
 
 /**
- * @author huke
+ * @author huke 2
  * @version $Id: User.java, v 0.1 2018年08月22日 下午2:51 huke Exp $
  */
 @Getter
